@@ -13,7 +13,7 @@ class VimeoProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('ring', function ($app) {
+        $this->app->bind('vimeo', function ($app) {
             return new Vimeo;
         });
     }
