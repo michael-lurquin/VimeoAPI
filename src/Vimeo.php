@@ -1,6 +1,6 @@
 <?php
 
-namespace MichaelLurquin\VimeoApi;
+namespace MichaelLurquin\Vimeo;
 
 use Illuminate\Support\Facades\Http;
 

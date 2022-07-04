@@ -1,9 +1,9 @@
 <?php
 
-namespace MichaelLurquin\VimeoApi\Tests;
+namespace MichaelLurquin\Vimeo\Tests;
 
 use PHPUnit\Framework\TestCase;
-use MichaelLurquin\VimeoApi\Vimeo;
+use MichaelLurquin\Vimeo\Vimeo;
 
 class VimeoTest extends TestCase
 {

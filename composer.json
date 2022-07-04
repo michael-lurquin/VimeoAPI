@@ -1,5 +1,5 @@
 {
-    "name": "michaellurquin/vimeo-api",
+    "name": "michael-lurquin/vimeo-api",
     "description": "Laravel Vimeo API",
     "keywords": ["laravel", "vimeo", "api"],
     "homepage": "https://github.com/michael-lurquin/VimeoAPI",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MichaelLurquin\\VimeoApi\\": "src"
+            "MichaelLurquin\\Vimeo\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MichaelLurquin\\VimeoApi\\Tests\\": "tests"
+            "MichaelLurquin\\Vimeo\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -39,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MichaelLurquin\\VimeoApi\\ServiceProvider"
+                "MichaelLurquin\\Vimeo\\VimeoServiceProvider"
             ]
         }
     }

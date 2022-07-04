@@ -1,10 +1,10 @@
 <?php
 
-namespace MichaelLurquin\VimeoApi;
+namespace MichaelLurquin\Vimeo;
 
 use Illuminate\Support\ServiceProvider;
 
-class VimeoProvider extends ServiceProvider
+class VimeoServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
