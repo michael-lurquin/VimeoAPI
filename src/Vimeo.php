@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Cache;
 
 /**
  * @see https://developer.vimeo.com/api/reference
- * @see CAPABILITIES : https://api.vimeo.com/users/:user/capabilities
  */
 class Vimeo
 {
