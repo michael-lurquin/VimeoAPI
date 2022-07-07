@@ -194,7 +194,7 @@ class Vimeo
 
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect();
 
-        $countPages = $response->get('total') / $response->get('per_page', $this->perPage);
+        $countPages = (int) $response->get('total') / (int) $response->get('per_page', $this->perPage);
 
         $data = new Collection($response->get('data'));
 
@@ -362,7 +362,7 @@ class Vimeo
 
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect();
 
-        $countPages = $response->get('total') / $response->get('per_page', $this->perPage);
+        $countPages = (int) $response->get('total') / (int) $response->get('per_page', $this->perPage);
 
         $data = new Collection($response->get('data'));
 
@@ -520,7 +520,7 @@ class Vimeo
 
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect();
 
-        $countPages = $response->get('total') / $response->get('per_page', $this->perPage);
+        $countPages = (int) $response->get('total') / (int) $response->get('per_page', $this->perPage);
 
         $data = new Collection($response->get('data'));
 
@@ -648,7 +648,7 @@ class Vimeo
 
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect();
 
-        $countPages = $response->get('total') / $response->get('per_page', $this->perPage);
+        $countPages = (int) $response->get('total') / (int) $response->get('per_page', $this->perPage);
 
         $data = new Collection($response->get('data'));
 
@@ -764,7 +764,7 @@ class Vimeo
 
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect();
 
-        $countPages = $response->get('total') / $response->get('per_page', $this->perPage);
+        $countPages = (int) $response->get('total') / (int) $response->get('per_page', $this->perPage);
 
         $data = new Collection($response->get('data'));
 
