@@ -43,8 +43,8 @@ class Vimeo
                 ->collect()
             ;
 
-            $this->setCacheForToken($response->get('access_token'));
-            $this->scopes = collect(explode(' ', $response->get('scope', [])));
+            $this->setCacheForToken((string) $response->get('access_token'));
+            $this->scopes = collect(explode(' ', (string) $response->get('scope', [])));
         }
 
         $this->accessToken = Cache::get($this->keyCacheToken);
@@ -72,6 +72,25 @@ class Vimeo
         $endpoint = config('vimeo.endpoint');
 
         $endpoint .= '?fields=' . implode(',', $fields);
+
+        return Http::withToken($this->accessToken)->get($endpoint)->collect();
+    }
+
+    /**
+     * Get capabilities of user's
+     * 
+     * @param string|null $userID
+     *
+     * @method GET
+     * @link https://api.vimeo.com/{user_id}/capabilities
+     *
+     * @return Collection
+     */
+    public function getCapabilities(string $userID = null) : Collection
+    {
+        $endpoint = config('vimeo.endpoint');
+
+        $endpoint .= empty($userID) ? "/me/capabilities" : "/users/{$userID}/capabilities";
 
         return Http::withToken($this->accessToken)->get($endpoint)->collect();
     }
@@ -159,9 +178,9 @@ class Vimeo
         $response = Http::withToken($this->accessToken)->get($endpoint)->collect('upload_quota.space')->only(['free', 'max', 'used']);
 
         return new Collection([
-            'free' => round($response->get('free') / $to, 2) . ' TB',
-            'used' => round($response->get('used') / $to, 2) . ' TB',
-            'max' => round($response->get('max') / $to, 2) . ' TB',
+            'free' => round((int) $response->get('free') / $to, 2) . ' TB',
+            'used' => round((int) $response->get('used') / $to, 2) . ' TB',
+            'max' => round((int) $response->get('max') / $to, 2) . ' TB',
         ]);
     }
 
