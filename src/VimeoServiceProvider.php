@@ -13,8 +13,18 @@ class VimeoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('vimeo', function ($app) {
-            return new Vimeo;
-        });
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/../config/vimeo.php' => config_path('vimeo.php'),
+        ], 'config');
     }
 }
