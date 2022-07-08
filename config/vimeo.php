@@ -1,29 +1,19 @@
 <?php
 
 return [
-    /*
-     * "token" or "oauth"
-     */
-    'method' => 'token',
+    'endpoints' => [
+        'base' => 'https://api.vimeo.com',
 
-    'authenticate' => 'https://api.vimeo.com/oauth/authorize/client',
-    'endpoint' => 'https://api.vimeo.com',
-    'verification' => 'https://api.vimeo.com/oauth/verify',
-
-    'app_id' => env('VIMEO_APP_ID'),
-    'app_secret' => env('VIMEO_APP_SECRET'),
-    'user_id' => env('VIMEO_USER_ID'),
-    'token' => env('VIMEO_TOKEN'),
-    'scopes' => [
-        'create',
-        'delete',
-        'edit',
-        'private',
-        'public',
-        'stats',
-        'upload',
-        'video_file',
+        'headers' => [
+            'Accept' => 'application/vnd.vimeo.*+json; version=3.4',
+            'Content-Type' => 'application/json',
+        ],
     ],
+
+    'client_id' => env('VIMEO_CLIENT_ID'),
+    'client_secret' => env('VIMEO_CLIENT_SECRET'),
+
+    'access_token' => env('VIMEO_ACCESS_TOKEN'),
 
     // "scopes" => [
     //     "create" => "Create new albums, channels, and so on",
@@ -40,7 +30,7 @@ return [
     //     "stats" => "Access video stats",
     //     "upload" => "Upload videos",
     //     "video_files" => "Access video files belonging to members with a PRO subscription or higher"
-    // ]
+    // ],
 
     'cache' => 60 * 24,
 ];

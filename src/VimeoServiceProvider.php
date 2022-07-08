@@ -2,6 +2,7 @@
 
 namespace MichaelLurquin\Vimeo;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 
 class VimeoServiceProvider extends ServiceProvider
@@ -26,5 +27,9 @@ class VimeoServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/vimeo.php' => config_path('vimeo.php'),
         ], 'config');
+
+        Http::macro('vimeo', function() {
+            return Http::baseUrl(config('vimeo.endpoints.base'));
+        });
     }
 }
