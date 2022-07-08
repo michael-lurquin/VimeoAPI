@@ -287,7 +287,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos
      * @see https://developer.vimeo.com/api/reference/folders#get_project_videos
      */
-    public function getVideosOfFolder(int $folderID) : self
+    public function videosOfFolder(int $folderID) : self
     {
         $this->setEndpoint("/projects/{$folderID}/videos");
         $this->setMethod('GET');
@@ -401,7 +401,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos
      * @see https://developer.vimeo.com/api/reference/videos#get_videos
      */
-    public function getAllVideos() : self
+    public function videos() : self
     {
         $this->setEndpoint("/videos");
         $this->setMethod('GET');
@@ -421,7 +421,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos/{video_id}
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function getVideo(int $videoID) : self
+    public function video(int $videoID) : self
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -508,7 +508,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?sizes=1920x1080&fields=pictures.sizes.link
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function getThumbnailOfVideo(int $videoID) : self
+    public function thumbnailOfVideo(int $videoID) : self
     {
         $this->setEndpoint("/videos/{$videoID}?sizes=1920x1080&fields=pictures.sizes.link");
         $this->setMethod('GET');
@@ -528,7 +528,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?fields=files
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function getDownloadLinksOfVideo(int $videoID) : self
+    public function downloadLinksOfVideo(int $videoID) : self
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -547,7 +547,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?fields=stats
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function getStatisticsOfVideo(int $videoID) : self
+    public function statisticsOfVideo(int $videoID) : self
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -569,7 +569,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events
      * @see https://developer.vimeo.com/api/reference/live#get_live_events
      */
-    public function getAllStreams() : self
+    public function streams() : self
     {
         $this->setEndpoint('/live_events');
         $this->setMethod('GET');
@@ -665,7 +665,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events/{live_event_id}
      * @see https://developer.vimeo.com/api/reference/live#get_live_event
      */
-    public function getStream(int $liveID) : self
+    public function stream(int $liveID) : self
     {
         $this->setEndpoint("/live_events/{$liveID}");
         $this->setMethod('GET');
@@ -683,7 +683,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos/{video_id}/sessions/status
      * @see https://developer.vimeo.com/api/reference/live#get_live_event
      */
-    public function getStatusOfStream(int $sessionID) : self
+    public function statusOfStream(int $sessionID) : self
     {
         $this->setEndpoint("/videos/{$sessionID}/sessions/status");
         $this->setMethod('GET');
