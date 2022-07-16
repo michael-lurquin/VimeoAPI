@@ -7,7 +7,7 @@ use MichaelLurquin\Vimeo\VimeoServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp() : void
+    public function setUp()
     {
         parent::setUp();
     }
