@@ -29,7 +29,6 @@ class VimeoOAuthTest extends TestCase
      */
     public function get_access_token()
     {
-
         Http::fake([
             config('vimeo.authenticate') => Http::response($this->response, 200, $this->headers),
         ]);

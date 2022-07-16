@@ -49,7 +49,7 @@ class Vimeo extends BaseVimeo
      *
      * @return self
      */
-    public function specification() : self
+    public function specification()
     {
         $this->clearEndpoint();
 
@@ -68,7 +68,7 @@ class Vimeo extends BaseVimeo
      *
      * @return self
      */
-    public function capabilities() : self
+    public function capabilities()
     {
         $this->setEndpoint('/capabilities');
         $this->setMethod('GET');
@@ -88,7 +88,7 @@ class Vimeo extends BaseVimeo
      *
      * @return self
      */
-    public function me() : self
+    public function me()
     {
         $this->setEndpoint('');
         $this->setMethod('GET');
@@ -106,7 +106,7 @@ class Vimeo extends BaseVimeo
      *
      * @return bool
      */
-    public function checkValidateToken() : self
+    public function checkValidateToken()
     {
         $this->clearEndpoint();
 
@@ -128,7 +128,7 @@ class Vimeo extends BaseVimeo
      *
      * @return bool
      */
-    public function deleteToken() : self
+    public function deleteToken()
     {
         $this->setEndpoint('/tokens');
         $this->setMethod('DELETE');
@@ -145,7 +145,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}?fields=upload_quota.space
      * @see https://developer.vimeo.com/api/reference/users#get_user
      */
-    public function getQuotaOfStorage() : Collection
+    public function getQuotaOfStorage()
     {
         $this->setEndpoint('/');
         $this->setMethod('GET');
@@ -174,7 +174,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects
      * @see https://developer.vimeo.com/api/reference/folders#get_projects
      */
-    public function folders() : self
+    public function folders()
     {
         $this->setEndpoint('/projects');
         $this->setMethod('GET');
@@ -195,7 +195,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}
      * @see https://developer.vimeo.com/api/reference/folders#get_projects
      */
-    public function folder(int $folderID) : self
+    public function folder(int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}");
         $this->setMethod('GET');
@@ -216,7 +216,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects
      * @see https://developer.vimeo.com/api/reference/folders#create_project
      */
-    public function createFolder(string $name) : self
+    public function createFolder(string $name)
     {
         $this->setEndpoint('/projects');
         $this->setMethod('POST');
@@ -240,7 +240,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}
      * @see https://developer.vimeo.com/api/reference/folders#edit_project
      */
-    public function editFolder(int $folderID, string $name) : self
+    public function editFolder(int $folderID, string $name)
     {
         $this->setEndpoint("/projects/{$folderID}");
         $this->setMethod('PATCH');
@@ -264,7 +264,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}
      * @see https://developer.vimeo.com/api/reference/folders#delete_project
      */
-    public function deleteFolder(int $folderID, bool $deleteAllVideos = false) : self
+    public function deleteFolder(int $folderID, bool $deleteAllVideos = false)
     {
         $this->setEndpoint("/projects/{$folderID}");
         $this->setMethod('DELETE');
@@ -287,7 +287,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos
      * @see https://developer.vimeo.com/api/reference/folders#get_project_videos
      */
-    public function videosOfFolder(int $folderID) : self
+    public function videosOfFolder(int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}/videos");
         $this->setMethod('GET');
@@ -309,7 +309,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos/{video_id}
      * @see https://developer.vimeo.com/api/reference/folders#get_project_videos
      */
-    public function addVideoToFolder(int $videoID, int $folderID) : self
+    public function addVideoToFolder(int $videoID, int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}/videos/{$videoID}");
         $this->setMethod('GET');
@@ -332,7 +332,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos
      * @see https://developer.vimeo.com/api/reference/folders#add_videos_to_project
      */
-    public function addVideosToFolder(array $videoIDs, int $folderID) : self
+    public function addVideosToFolder(array $videoIDs, int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}/videos");
         $this->setMethod('PUT');
@@ -357,7 +357,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos/{video_id}
      * @see https://developer.vimeo.com/api/reference/folders#remove_video_from_project
      */
-    public function deleteVideoFromFolder(int $videoID, int $folderID) : self
+    public function deleteVideoFromFolder(int $videoID, int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}/videos/$videoID}");
         $this->setMethod('DELETE');
@@ -380,7 +380,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/projects/{project_id}/videos
      * @see https://developer.vimeo.com/api/reference/folders#remove_videos_from_project
      */
-    public function deleteVideosFromFolder(array $videoIDs, int $folderID) : self
+    public function deleteVideosFromFolder(array $videoIDs, int $folderID)
     {
         $this->setEndpoint("/projects/{$folderID}/videos");
         $this->setMethod('DELETE');
@@ -401,7 +401,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos
      * @see https://developer.vimeo.com/api/reference/videos#get_videos
      */
-    public function videos() : self
+    public function videos()
     {
         $this->setEndpoint("/videos");
         $this->setMethod('GET');
@@ -421,7 +421,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos/{video_id}
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function video(int $videoID) : self
+    public function video(int $videoID)
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -443,7 +443,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos/{video_id}
      * @see https://developer.vimeo.com/api/reference/videos#edit_video
      */
-    public function editVideo(int $videoID, array $params) : self
+    public function editVideo(int $videoID, array $params)
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('PATCH');
@@ -466,7 +466,7 @@ class Vimeo extends BaseVimeo
      *
      * @return bool
      */
-    public function deleteVideo(int $videoID) : self
+    public function deleteVideo(int $videoID)
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('DELETE');
@@ -487,7 +487,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/videos
      * @see https://developer.vimeo.com/api/reference/videos#search_videos
      */
-    public function searchVideosAllVimeo(string $query) : self
+    public function searchVideosAllVimeo(string $query)
     {
         $this->clearEndpoint();
 
@@ -508,7 +508,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?sizes=1920x1080&fields=pictures.sizes.link
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function thumbnailOfVideo(int $videoID) : self
+    public function thumbnailOfVideo(int $videoID)
     {
         $this->setEndpoint("/videos/{$videoID}?sizes=1920x1080&fields=pictures.sizes.link");
         $this->setMethod('GET');
@@ -528,7 +528,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?fields=files
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function downloadLinksOfVideo(int $videoID) : self
+    public function downloadLinksOfVideo(int $videoID)
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -547,7 +547,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/:user/videos/:video?fields=stats
      * @see https://developer.vimeo.com/api/reference/videos#get_video
      */
-    public function statisticsOfVideo(int $videoID) : self
+    public function statisticsOfVideo(int $videoID)
     {
         $this->setEndpoint("/videos/{$videoID}");
         $this->setMethod('GET');
@@ -569,7 +569,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events
      * @see https://developer.vimeo.com/api/reference/live#get_live_events
      */
-    public function streams() : self
+    public function streams()
     {
         $this->setEndpoint('/live_events');
         $this->setMethod('GET');
@@ -592,7 +592,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events
      * @see https://developer.vimeo.com/api/reference/live#create_live_event
      */
-    public function createStream(string $title, array $params = []) : self
+    public function createStream(string $title, array $params = [])
     {
         $this->setEndpoint('/live_events');
         $this->setMethod('POST');
@@ -618,7 +618,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events
      * @see https://developer.vimeo.com/api/reference/live#update_live_event
      */
-    public function editStream(int $liveID, array $params) : self
+    public function editStream(int $liveID, array $params)
     {
         $this->setEndpoint("/live_events/{$liveID}");
         $this->setMethod('PATCH');
@@ -642,7 +642,7 @@ class Vimeo extends BaseVimeo
      * 
      * @return bool
      */
-    public function deleteStream(int $liveID) : self
+    public function deleteStream(int $liveID)
     {
         $this->setEndpoint("/live_events/{$liveID}");
         $this->setMethod('DELETE');
@@ -665,7 +665,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events/{live_event_id}
      * @see https://developer.vimeo.com/api/reference/live#get_live_event
      */
-    public function stream(int $liveID) : self
+    public function stream(int $liveID)
     {
         $this->setEndpoint("/live_events/{$liveID}");
         $this->setMethod('GET');
@@ -683,7 +683,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/videos/{video_id}/sessions/status
      * @see https://developer.vimeo.com/api/reference/live#get_live_event
      */
-    public function statusOfStream(int $sessionID) : self
+    public function statusOfStream(int $sessionID)
     {
         $this->setEndpoint("/videos/{$sessionID}/sessions/status");
         $this->setMethod('GET');
@@ -705,7 +705,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events/{live_event_id}/activate
      * @see https://developer.vimeo.com/api/reference/live#activate_live_event
      */
-    public function startStream(int $liveID) : self
+    public function startStream(int $liveID)
     {
         $this->setEndpoint("/live_events/{$liveID}/activate");
         $this->setMethod('POST');
@@ -728,7 +728,7 @@ class Vimeo extends BaseVimeo
      * @link https://api.vimeo.com/users/{user_id}/live_events/{live_event_id}/end
      * @see https://developer.vimeo.com/api/reference/live#end_live_event
      */
-    public function stopStream(int $liveID) : self
+    public function stopStream(int $liveID)
     {
         $this->setEndpoint("/live_events/{$liveID}/end");
         $this->setMethod('POST');

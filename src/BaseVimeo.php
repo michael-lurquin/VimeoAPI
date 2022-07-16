@@ -20,7 +20,7 @@ class BaseVimeo
     private string|null $getOfCollection = null;
     private int $perPage = 25;
 
-    protected function setHeaders() : void
+    protected function setHeaders()
     {
         $this->client->contentType(config('vimeo.endpoints.headers')['Content-Type']);
         $this->client->accept(config('vimeo.endpoints.headers')['Accept']);
@@ -36,7 +36,7 @@ class BaseVimeo
         return Http::vimeo()->withToken($this->accessToken);
     }
 
-    public function forUser(int $userID = null) : self
+    public function forUser(int $userID = null)
     {
         $this->userID = $userID;
 
@@ -45,36 +45,36 @@ class BaseVimeo
         return $this;
     }
 
-    public function columns(array $fields = []) : self
+    public function columns(array $fields = [])
     {
         $this->fields = $fields;
 
         return $this;
     }
 
-    protected function prepareFields() : string
+    protected function prepareFields()
     {
         $symbol = is_null($this->query) ? '?' : '&';
 
         return !empty($this->fields) ? "{$symbol}fields=" . implode(',', $this->fields) : '';
     }
 
-    protected function setMethod(string $method) : void
+    protected function setMethod(string $method)
     {
         $this->method = strtoupper($method);
     }
 
-    protected function setBody(array $body) : void
+    protected function setBody(array $body)
     {
         $this->body = $body;
     }
 
-    protected function setEndpoint(string $endpoint) : void
+    protected function setEndpoint(string $endpoint)
     {
         $this->endpoint .= $endpoint;
     }
 
-    protected function setQuery(string $query) : void
+    protected function setQuery(string $query)
     {
         $this->query = $query;
     }
@@ -125,7 +125,7 @@ class BaseVimeo
         $this->query = null;
     }
 
-    protected function request() : Collection|bool|string
+    protected function request()
     {
         $endpoint = is_null($this->query) ? $this->endpoint : $this->endpoint . "?query={$this->query}";
 
@@ -201,7 +201,7 @@ class BaseVimeo
         else return $data;
     }
 
-    public function get() : Collection|bool|string
+    public function get()
     {
         $response = $this->request();
 

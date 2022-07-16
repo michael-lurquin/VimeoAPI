@@ -10,7 +10,7 @@ class VimeoTest extends TestCase
 {
     private $vimeo;
 
-    public function setUp() : void
+    public function setUp()
     {
         parent::setUp();
 
