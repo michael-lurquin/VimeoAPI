@@ -12,9 +12,9 @@ use Illuminate\Support\Collection;
  */
 class Vimeo extends BaseVimeo
 {
-    protected string $clientID;
-    protected string $clientSecret;
-    protected string $accessToken;
+    protected $clientID;
+    protected $clientSecret;
+    protected $accessToken;
     protected $client;
 
     public function __construct()

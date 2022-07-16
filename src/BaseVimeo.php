@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\Http;
 
 class BaseVimeo
 {
-    protected int $userID;
-    private array $fields = [];
-    private string $endpoint = '';
-    private string $method = 'GET';
-    private array $body = [];
-    private string $query;
-    private int $returnCode;
-    private string $keyOfCollection;
-    private array $onlyOfCollection;
-    private string $getOfCollection;
-    private int $perPage = 25;
+    protected $userID;
+    private $fields = [];
+    private $endpoint = '';
+    private $method = 'GET';
+    private $body = [];
+    private $query;
+    private $returnCode;
+    private $keyOfCollection;
+    private $onlyOfCollection;
+    private $getOfCollection;
+    private $perPage = 25;
 
     protected function setHeaders() : void
     {
