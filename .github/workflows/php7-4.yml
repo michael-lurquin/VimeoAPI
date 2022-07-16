@@ -13,7 +13,7 @@ jobs:
         laravel: [8.*]
         dependency-version: [prefer-stable]
         include:
-          - testbench: 6.28.1
+          - testbench: 6.x-dev
           - guzzle: 7.1.1
 
     name: PHP ${{ matrix.php }}
@@ -37,7 +37,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "symfony/console:>=4.3.4" --no-interaction --no-update
+          composer require "orchestra/testbench:${{ matrix.testbench }}" "symfony/console:>=4.3.4" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
       - name: Execute tests
         run: vendor/bin/phpunit
