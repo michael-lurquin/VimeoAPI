@@ -11,12 +11,9 @@ jobs:
       matrix:
         php: [8.0]
         laravel: [9.*]
-        dependency-version: [prefer-lowest, prefer-stable]
-        include:
-          - laravel: 9.*
-            testbench: 7.*
+        dependency-version: [prefer-stable]
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+    name: PHP ${{ matrix.php }}
 
     steps:
       - name: Checkout code
