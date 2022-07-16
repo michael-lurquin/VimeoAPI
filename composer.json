@@ -13,11 +13,11 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "guzzlehttp/guzzle": "^7.1.1 || ^7.4"
+        "guzzlehttp/guzzle": "^7.2.0 || ^7.4"
     },
     "require-dev": {
         "orchestra/testbench": "^6.x-dev || ^7.6",
-        "phpunit/phpunit": "^8.5.21 || ^9.5.10"
+        "phpunit/phpunit": "^9.3 || ^9.5.10"
     },
     "autoload": {
         "psr-4": {
