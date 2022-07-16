@@ -13,8 +13,8 @@ jobs:
         laravel: [9.*]
         dependency-version: [prefer-stable]
         include:
-          testbench: 7.6
-          guzzle: 7.4
+          - testbench: 7.6
+          - guzzle: 7.4
 
     name: PHP ${{ matrix.php }}
 
