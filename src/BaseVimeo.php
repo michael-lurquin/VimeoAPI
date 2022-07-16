@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Http;
 
 class BaseVimeo
 {
-    protected int|null $userID;
+    protected int $userID;
     private array $fields = [];
     private string $endpoint = '';
     private string $method = 'GET';
     private array $body = [];
-    private string|null $query = null;
-    private int|null $returnCode = null;
-    private string|null $keyOfCollection = null;
-    private array|null $onlyOfCollection = null;
-    private string|null $getOfCollection = null;
+    private string $query;
+    private int $returnCode;
+    private string $keyOfCollection;
+    private array $onlyOfCollection;
+    private string $getOfCollection;
     private int $perPage = 25;
 
-    protected function setHeaders()
+    protected function setHeaders() : void
     {
         $this->client->contentType(config('vimeo.endpoints.headers')['Content-Type']);
         $this->client->accept(config('vimeo.endpoints.headers')['Accept']);
@@ -36,7 +36,7 @@ class BaseVimeo
         return Http::vimeo()->withToken($this->accessToken);
     }
 
-    public function forUser(int $userID = null)
+    public function forUser(int $userID = null) : self
     {
         $this->userID = $userID;
 
@@ -45,36 +45,36 @@ class BaseVimeo
         return $this;
     }
 
-    public function columns(array $fields = [])
+    public function columns(array $fields = []) : self
     {
         $this->fields = $fields;
 
         return $this;
     }
 
-    protected function prepareFields()
+    protected function prepareFields() : string
     {
         $symbol = is_null($this->query) ? '?' : '&';
 
         return !empty($this->fields) ? "{$symbol}fields=" . implode(',', $this->fields) : '';
     }
 
-    protected function setMethod(string $method)
+    protected function setMethod(string $method) : void
     {
         $this->method = strtoupper($method);
     }
 
-    protected function setBody(array $body)
+    protected function setBody(array $body) : void
     {
         $this->body = $body;
     }
 
-    protected function setEndpoint(string $endpoint)
+    protected function setEndpoint(string $endpoint) : void
     {
         $this->endpoint .= $endpoint;
     }
 
-    protected function setQuery(string $query)
+    protected function setQuery(string $query) : void
     {
         $this->query = $query;
     }

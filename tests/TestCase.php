@@ -2,12 +2,12 @@
 
 namespace MichaelLurquin\Vimeo\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use MichaelLurquin\Vimeo\VimeoServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
     }
